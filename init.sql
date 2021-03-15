@@ -33,7 +33,9 @@ CREATE TABLE InfoProfil_Reseaux
     instagramUserName varchar(29),
     twitterUserName   varchar(14),
     spotifyUserName   varchar(127),
-    deezerUrl         varchar(127)
+    deezerUrl         varchar(127),
+    idProfil          bigint,
+    FOREIGN KEY (idProfil) REFERENCES Profil (idProfil)
 );
 
 -- InfoProfil : instruments maitrisés, réservés aux profils de musiciens uniquement
