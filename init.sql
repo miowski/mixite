@@ -72,39 +72,22 @@ CREATE TABLE Post_Contenu
     idContenu bigint PRIMARY KEY,
     imagePost bigint,
     textePost varchar(279),
-    videoPost varchar(99),
+    videoPost bigint,
     audioPost bigint,
     idPost    bigint,
     FOREIGN KEY (idPost) REFERENCES Post (idPost)
 );
 
 -- Réalisations d'un groupe ou d'un musicien
+-- -- releaseType : 0 = single, 1 = Album
 
-CREATE TABLE Album
+CREATE TABLE Releases
 (
-    albumId    bigint PRIMARY KEY,
-    albumName  varchar(127),
-    albumImage bigint,
-    albumLLink varchar(255),
-    idProfil bigint,
-    FOREIGN KEY (idProfil) REFERENCES Profil (idProfil)
-);
-
-CREATE TABLE Single
-(
-    singleId    bigint PRIMARY KEY,
-    singleName  varchar(127),
-    singleImage bigint,
-    SingleLink  varchar(255),
-    idProfil bigint,
-    FOREIGN KEY (idProfil) REFERENCES Profil (idProfil)
-);
-
-CREATE TABLE ExtraitAudio
-(
-    extraitId   bigint PRIMARY KEY,
-    extraitNom  varchar(127),
-    extraitDate datetime,
-    idProfil    bigint,
+    releaseId    bigint,
+    releaseDate  datetime,
+    releaseName  varchar(127),
+    releaseCover bigint,
+    releaseType  tinyint,
+    idProfil     bigint,
     FOREIGN KEY (idProfil) REFERENCES Profil (idProfil)
 );
