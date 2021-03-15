@@ -3,16 +3,8 @@
 CREATE TABLE Profil
 (
     idProfil           bigint PRIMARY KEY,
+    typeProfil         tinyint,
     dateCreationProfil datetime
-);
-
--- -- typeProfil : 0 = musicien, 1=groupe
-
-CREATE TABLE Profil_Type
-(
-    typeProfil tinyint PRIMARY KEY,
-    idProfil   varchar,
-    FOREIGN KEY (idProfil) REFERENCES Profil (idProfil)
 );
 
 -- Infos de profil (partagées par musiciens ET groupes)
@@ -85,7 +77,7 @@ CREATE TABLE Post_Contenu
 
 CREATE TABLE Releases
 (
-    releaseId    bigint,
+    releaseId    bigint PRIMARY KEY,
     releaseDate  datetime,
     releaseName  varchar(127),
     releaseCover bigint,
