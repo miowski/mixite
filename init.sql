@@ -41,8 +41,8 @@ CREATE TABLE InfoProfil_Reseaux
     deezerUrl         varchar(127),
     idProfil          bigint,
     idGroupe          bigint,
-    FOREIGN KEY (idProfil) REFERENCES Profil (IdProfil),
-    FOREIGN KEY (idGroupe) REFERENCES Groupe (idGroupe),
+    FOREIGN KEY (idProfil) REFERENCES InfoProfil (IdProfil),
+    FOREIGN KEY (idGroupe) REFERENCES InfoProfil (idGroupe),
     -- Vérifie qu'un seul type de profil est sollicité (musicien ou groupe)
     CONSTRAINT SingleProfileType check (
             (idProfil IS NULL OR idGroupe IS NULL)
@@ -58,7 +58,7 @@ CREATE TABLE InfoProfil_Instrument
     idInstrument     smallint,
     idProfil         bigint,
     FOREIGN KEY (idInstrument) REFERENCES Instrument (idInstrument),
-    FOREIGN KEY (idProfil) REFERENCES Profil (idProfil)
+    FOREIGN KEY (idProfil) REFERENCES InfoProfil (idProfil)
 );
 
 CREATE TABLE Instrument
