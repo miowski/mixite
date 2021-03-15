@@ -110,7 +110,7 @@ CREATE TABLE Post_Contenu
 -- -- (Un album est un ensemble de musiques sorties en même temps,
 -- -- tandis qu'un Single est une musique seule)
 
-CREATE TABLE Releases
+CREATE TABLE InfoProfil_Releases
 (
     idRelease    bigint PRIMARY KEY,
     dateRelease  datetime,
