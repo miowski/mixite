@@ -13,13 +13,22 @@ CREATE TABLE Groupe
     membresGroupe      varchar(512)
 );
 
+CREATE TABLE Groupe_Membres
+(
+    idProfil bigint,
+    idGroupe bigint,
+    dateRejointGroupe datetime,
+    FOREIGN KEY (idProfil) REFERENCES Profil (idProfil),
+    FOREIGN KEY (idGroupe) REFERENCES Groupe (idGroupe)
+);
+
 -- Infos de profil (partagées par musiciens ET groupes)
 
 CREATE TABLE InfoProfil
 (
-    NomProfil         varchar(50) PRIMARY KEY,
-    descriptionProfil varchar(140),
-    photoProfil       bigint,
+    NomProfil         varchar(59) PRIMARY KEY,
+    descriptionProfil varchar(139),
+    publicIdProfil    varchar(14),
     idProfil          bigint,
     idGroupe          bigint,
     FOREIGN KEY (idProfil) REFERENCES Profil (IdProfil),
@@ -64,8 +73,7 @@ CREATE TABLE InfoProfil_Instrument
 CREATE TABLE Instrument
 (
     idInstrument    smallint PRIMARY KEY,
-    nomInstrument   varchar(127),
-    iconeInstrument smallint
+    nomInstrument   varchar(127)
 );
 
 -- Publications (pouvant être postées par musiciens ET groupes)
@@ -104,16 +112,16 @@ CREATE TABLE Post_Contenu
 
 CREATE TABLE Releases
 (
-    releaseId    bigint PRIMARY KEY,
-    releaseDate  datetime,
-    releaseName  varchar(127),
-    releaseUrl   varchar(127),
-    releaseCover bigint,
-    releaseType  tinyint,
+    idRelease    bigint PRIMARY KEY,
+    dateRelease  datetime,
+    nameRelease  varchar(127),
+    urlRelease   varchar(127),
+    coverRelease bigint,
+    typeRelease  tinyint,
     idProfil          bigint,
     idGroupe          bigint,
-    FOREIGN KEY (idProfil) REFERENCES Profil (IdProfil),
-    FOREIGN KEY (idGroupe) REFERENCES Groupe (idGroupe),
+    FOREIGN KEY (idProfil) REFERENCES InfoProfil (IdProfil),
+    FOREIGN KEY (idGroupe) REFERENCES InfoProfil (idGroupe),
     -- Vérifie qu'un seul type de profil est sollicité (musicien ou groupe)
     CONSTRAINT SingleProfileType check (
             (idProfil IS NULL OR idGroupe IS NULL)
