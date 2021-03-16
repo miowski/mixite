@@ -10,14 +10,14 @@ CREATE TABLE Groupe
 (
     idGroupe           bigint PRIMARY KEY,
     dateCreationGroupe datetime,
-    membresGroupe      varchar(512)
+    adminGroupe        bigint,
+    FOREIGN KEY (adminGroupe) REFERENCES Profil (idProfil)
 );
 
 CREATE TABLE Groupe_Membres
 (
     idProfil          bigint,
     idGroupe          bigint,
-    adminGroupe       bigint,
     dateRejointGroupe datetime,
     FOREIGN KEY (idProfil) REFERENCES Profil (idProfil),
     FOREIGN KEY (idGroupe) REFERENCES Groupe (idGroupe)
