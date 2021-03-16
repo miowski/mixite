@@ -15,8 +15,9 @@ CREATE TABLE Groupe
 
 CREATE TABLE Groupe_Membres
 (
-    idProfil bigint,
-    idGroupe bigint,
+    idProfil          bigint,
+    idGroupe          bigint,
+    adminGroupe       bigint,
     dateRejointGroupe datetime,
     FOREIGN KEY (idProfil) REFERENCES Profil (idProfil),
     FOREIGN KEY (idGroupe) REFERENCES Groupe (idGroupe)
@@ -38,6 +39,14 @@ CREATE TABLE InfoProfil
             (idProfil IS NULL OR idGroupe IS NULL)
             AND NOT (idProfil IS NULL AND idGroupe IS NULL)
         )
+);
+
+CREATE TABLE InfoProfil_Prive
+(
+    mailProfil     varchar(127),
+    passwordProfil varchar(49),
+    idProfil       bigint PRIMARY KEY,
+    FOREIGN KEY (idProfil) REFERENCES Profil (idProfil)
 );
 
 CREATE TABLE InfoProfil_Reseaux
@@ -72,8 +81,8 @@ CREATE TABLE InfoProfil_Instrument
 
 CREATE TABLE Instrument
 (
-    idInstrument    smallint PRIMARY KEY,
-    nomInstrument   varchar(127)
+    idInstrument  smallint PRIMARY KEY,
+    nomInstrument varchar(127)
 );
 
 -- Publications (pouvant être postées par musiciens ET groupes)
@@ -83,8 +92,8 @@ CREATE TABLE Post
     idPost   bigint PRIMARY KEY,
     datePost datetime,
     typePost tinyint,
-    idProfil          bigint,
-    idGroupe          bigint,
+    idProfil bigint,
+    idGroupe bigint,
     FOREIGN KEY (idProfil) REFERENCES Profil (IdProfil),
     FOREIGN KEY (idGroupe) REFERENCES Groupe (idGroupe)
     -- Inutile de ne sélectionner qu'un seul type de publicateur ici :
@@ -118,8 +127,8 @@ CREATE TABLE InfoProfil_Releases
     urlRelease   varchar(127),
     coverRelease bigint,
     typeRelease  tinyint,
-    idProfil          bigint,
-    idGroupe          bigint,
+    idProfil     bigint,
+    idGroupe     bigint,
     FOREIGN KEY (idProfil) REFERENCES InfoProfil (IdProfil),
     FOREIGN KEY (idGroupe) REFERENCES InfoProfil (idGroupe),
     -- Vérifie qu'un seul type de profil est sollicité (musicien ou groupe)
