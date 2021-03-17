@@ -26,10 +26,9 @@ CREATE TABLE Groupe_Membres
 -- Infos de profil (partagées par musiciens ET groupes)
 
 CREATE TABLE InfoProfil
-(
-    NomProfil         varchar(59) PRIMARY KEY,
+(   publicIdProfil    varchar(14) PRIMARY KEY,
+    NomProfil         varchar(59),
     descriptionProfil varchar(139),
-    publicIdProfil    varchar(14),
     idProfil          bigint,
     idGroupe          bigint,
     FOREIGN KEY (idProfil) REFERENCES Profil (IdProfil),
@@ -43,9 +42,9 @@ CREATE TABLE InfoProfil
 
 CREATE TABLE InfoProfil_Prive
 (
-    mailProfil     varchar(127),
+    mailProfil     varchar(127) PRIMARY KEY,
     passwordProfil varchar(49),
-    idProfil       bigint PRIMARY KEY,
+    idProfil       bigint,
     FOREIGN KEY (idProfil) REFERENCES Profil (idProfil)
 );
 
