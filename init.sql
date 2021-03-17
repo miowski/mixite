@@ -16,8 +16,8 @@ CREATE TABLE Groupe
 
 CREATE TABLE Groupe_Membres
 (
+    idGroupe          bigint PRIMARY KEY,
     idProfil          bigint,
-    idGroupe          bigint,
     dateRejointGroupe datetime,
     FOREIGN KEY (idProfil) REFERENCES Profil (idProfil),
     FOREIGN KEY (idGroupe) REFERENCES Groupe (idGroupe)
@@ -51,6 +51,7 @@ CREATE TABLE InfoProfil_Prive
 
 CREATE TABLE InfoProfil_Reseaux
 (
+    idEnsembleReseaux bigint PRIMARY KEY,
     youtubeUrl        varchar(127),
     tiktokUserName    varchar(127),
     instagramUserName varchar(29),
@@ -74,7 +75,7 @@ CREATE TABLE InfoProfil_Instrument
 (
     anneesInstrument tinyint,
     idInstrument     smallint,
-    idProfil         bigint,
+    idProfil         bigint PRIMARY KEY,
     FOREIGN KEY (idInstrument) REFERENCES Instrument (idInstrument),
     FOREIGN KEY (idProfil) REFERENCES InfoProfil (idProfil)
 );
