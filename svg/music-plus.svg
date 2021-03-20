@@ -1,0 +1,36 @@
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #aba1f1;
+      }
+
+      .cls-2 {
+        fill: #ec4480;
+      }
+
+      .cls-3, .cls-4 {
+        fill: none;
+        stroke: #ec4480;
+      }
+
+      .cls-3 {
+        stroke-width: 5px;
+      }
+
+      .cls-4 {
+        stroke-linecap: round;
+        stroke-width: 12px;
+      }
+    </style>
+  </defs>
+  <g id="Groupe_17" data-name="Groupe 17">
+    <g id="Ellipse-2">
+      <circle class="cls-1" cx="256" cy="256" r="162.79"/>
+    </g>
+    <path id="Rectangle_14-2" data-name="Rectangle 14-2" class="cls-2" d="M186.53,202.09h0A53.92,53.92,0,0,1,240.45,256h0a53.92,53.92,0,0,1-53.92,53.91h0A53.92,53.92,0,0,1,132.61,256h0A53.92,53.92,0,0,1,186.53,202.09Z"/>
+    <polyline id="Ligne_7" data-name="Ligne 7" class="cls-3" points="318.21 233.19 305.35 134.22 226.29 289.29"/>
+    <line class="cls-4" x1="275.38" y1="302.29" x2="360.79" y2="302.29"/>
+    <line class="cls-4" x1="318.09" y1="258.03" x2="318.09" y2="343.79"/>
+  </g>
+</svg>
