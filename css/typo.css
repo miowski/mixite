@@ -21,3 +21,7 @@ p {
     font-family: "Work Sans", sans-serif;
     font-weight: 300;
 }
+
+nav > div {
+    font-family: "Work Sans", sans-serif;
+}
