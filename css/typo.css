@@ -1,0 +1,23 @@
+/* Import des polices */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap');
+
+/* Règles typographiques de base */
+
+h1, h2 {
+    font-family: "Playfair Display", sans-serif;
+    font-weight: 900;
+}
+
+h3 {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 300;
+}
