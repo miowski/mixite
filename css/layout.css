@@ -4,9 +4,11 @@
 
 #intro {
     height: 93vh;
+    margin: 31.5vh auto 31.5vh auto;
 }
 
 #intro-content {
+    height: 30vh;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -15,10 +17,14 @@
 #intro-catchphrases {
     color: white;
     text-align: right;
+    line-height: 1rem;
+    display: block;
+    margin: auto 0 auto 2rem;
 }
 
 #intro-catchphrases > h2 {
     color: #F04681;
+    font-size: 3rem;
 }
 
 #intro-logo {
