@@ -67,10 +67,29 @@ nav > h1 {
     height: auto;
 }
 
-#section-1, #section-2, #section-3 {
+.section {
     position: absolute;
     height: 100vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.section-content {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    color: white;
+}
+
+.section-content > img {
+    width: 25rem;
+}
+
+.section-text {
+    width: 32rem;
 }
 
 #section-1 {
@@ -86,6 +105,19 @@ nav > h1 {
 #section-3 {
     top: 300vh;
     background-color: #F04681;
+}
+
+.search, footer {
+    position: absolute;
+}
+
+.search {
+    top: 400vh;
+    height: 100vh;
+}
+
+footer {
+    top: 500vh;
 }
 
 button {
