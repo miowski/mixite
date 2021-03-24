@@ -3,14 +3,42 @@
 /* sections */
 
 #intro {
-    height: 100%;
+    height: 93vh;
+}
+
+#intro-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#intro-catchphrases {
+    color: white;
+    text-align: right;
+}
+
+#intro-catchphrases > h2 {
+    color: #F04681;
+}
+
+#intro-logo {
+    max-width: 512px;
+}
+
+#intro-overlay {
+    position: absolute;
+    top: 7vh;
+    max-height: 93vh;
     background-color: #2185D6;
+    z-index: -1;
+    overflow: hidden;
 }
 
 #intro-background {
-    height: 100%;
-    background: url("../img/home-bgn.jpg") no-repeat center;
-    background-size: contain;
+    opacity: 50%;
+    z-index: -2;
+    width: 100%;
+    height: auto;
 }
 
 nav {
@@ -18,7 +46,7 @@ nav {
     color: white;
     display: flex;
     justify-content: space-between;
-    height: 3rem;
+    height: 7vh;
 }
 
 nav > div {
