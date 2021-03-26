@@ -114,10 +114,40 @@ nav > h1 {
 .search {
     top: 400vh;
     height: 100vh;
+    width: 100vw;
+    background: #2185D6;
 }
 
 footer {
     top: 500vh;
+    height: 14vh;
+    width: 100vw;
+    background: #8DBADE;
+    padding: 1rem;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+}
+
+.social {
+    height: 2rem;
+    width: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #8DBADE;
+}
+
+.social:hover {
+    background: aliceblue;
+}
+
+.footer-text {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.5rem;
 }
 
 button {
