@@ -19,10 +19,11 @@ h3 {
     text-transform: uppercase;
 }
 
-p {
+p, ul > li, .search-filter {
     font-family: "Work Sans", sans-serif;
     font-weight: 300;
 }
+
 
 input{
     font-family: "Work Sans", sans-serif;
@@ -33,12 +34,24 @@ nav > div {
     font-family: "Work Sans", sans-serif;
 }
 
+button {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+}
+
 .section-text {
     font-size: 1.5rem;
 }
 
 .section-text > h1 {
     font-size: 2.25rem;
+}
+
+/* corps */
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-stop: always;
 }
 
 /* sections */
@@ -64,24 +77,33 @@ nav > h1 {
 }
 
 #intro {
-    height: 93vh;
-    margin: 31.5vh auto 31.5vh auto;
+    height: 103vh;
+    width: 100vw;
 }
 
 #intro-content {
-    height: 30vh;
+    height: 60vh;
+    margin: 15vh auto 15vh auto;
+}
+
+#intro-content > button {
+    display: block;
+    margin: 3rem auto 0 auto;
+}
+
+#intro-main {
     display: flex;
     justify-content: center;
-    align-content: center;
 }
 
 #intro-catchphrases {
+    position: relative;
+    top: 2.75rem;
     color: white;
     text-align: right;
     line-height: 1rem;
-    display: block;
-    margin: auto 0 auto 2rem;
     text-shadow: black 0 0 0.5rem;
+    margin-left: 2rem;
 }
 
 #intro-catchphrases > h2 {
@@ -94,29 +116,38 @@ nav > h1 {
     filter: drop-shadow(0 0 0.5rem black);
 }
 
+#intro-justification {
+    color: white;
+    text-align: center;
+    display: block;
+    margin: 3rem 25% 0 25%;
+}
+
 #intro-overlay {
     position: absolute;
     top: 7vh;
-    max-height: 93vh;
+    height: 103vh;
     background: black;
     z-index: -1;
-    overflow: hidden;
 }
 
 #intro-background {
     opacity: 50%;
     z-index: -2;
-    width: 100%;
-    height: auto;
+    width: 100vw;
+    height: 103vh;
+    background: url(../img/home-bgn.jpg);
+    background-size: cover;
 }
 
 .section {
     position: absolute;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-content: center;
+    clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 10%);
 }
 
 .section-content {
@@ -128,9 +159,8 @@ nav > h1 {
 }
 
 .section-illustration {
-    width: 50%;
+    width: 50vw;
     height: 100%;
-    background: url(../img/guitar-monochrome.jpg) no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -138,12 +168,14 @@ nav > h1 {
 }
 
 .section-illustration > img {
-    width: 50%;
-    height: 50%;
+    width: 60vw;
+    height: 60%;
+    filter: drop-shadow(0 0 0.5rem #000000);
 }
 
 .section-text {
-    width: 50%;
+    width: 50vw;
+    padding: 10%;
 }
 
 #section-1 {
@@ -151,14 +183,28 @@ nav > h1 {
     background-color: #AAA2F5;
 }
 
+#section-1 .section-content > .section-illustration {
+    background: url(../img/musicians-band.jpg) no-repeat;
+    background-size: cover;
+}
+
 #section-2 {
-    top: 200vh;
-    background-color: #24F5A9;
+    top: 190vh;
+    background-color: #0ADB88;
+}
+
+#section-2 .section-content > .section-illustration {
+    background: url(../img/guitar-band.jpg) no-repeat;
+    background-size: cover;
 }
 
 #section-3 {
-    top: 300vh;
+    top: 280vh;
     background-color: #F04681;
+}
+
+#section-3 > .section-content > .section-illustration {
+    background: url(../img/guitar-monochrome.jpg) no-repeat;
 }
 
 .search, footer {
@@ -166,20 +212,21 @@ nav > h1 {
 }
 
 .search {
-    top: 400vh;
-    height: 100vh;
+    top: 369vh;
+    height: 75vh;
     width: 100vw;
     background: #2185D6;
     display: flex;
     justify-content: center;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 10%);
 }
 
 .search-area {
     position: absolute;
     padding: 1rem;
     width: 80vw;
-    height: 80vh;
-    bottom: 0;
+    height: 55vh;
+    top: 20vh;
     border-radius: 1rem 1rem 0 0;
     background: white;
     box-shadow: black 0 0 0.5rem;
@@ -192,12 +239,65 @@ nav > h1 {
     border-radius: 0.5rem;
 }
 
+#search-icon {
+    position: absolute;
+    right: 1.7rem;
+    top: 2rem;
+}
+
+.edit-filters > input {
+    border: none;
+    border-bottom: solid 2px #AAA2F5;
+    margin-right: 0.5rem;
+}
+
+.search-filters {
+    display: flex;
+    justify-items: left;
+}
+
+.search-filter {
+    padding: 0.15rem 0.5rem 0.15rem 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 1rem;
+    width: fit-content;
+    background: lightgray;
+}
+
+.slider {
+    width: calc(80vw - 2rem);
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    justify-items: left;
+    overflow: scroll;
+    list-style: none;
+    margin: 0;
+}
+
+.slider::-webkit-scrollbar {
+    height: 5px;
+}
+
+.slider > li {
+    min-width: 10rem;
+    min-height: 10rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: solid 2px #AAA2F5;
+    border-radius: 0.5rem;
+    transition: .2s;
+}
+
+.slider > li:hover {
+    box-shadow: black 0 0 0.5rem;
+}
+
 footer {
-    top: 500vh;
-    height: 14vh;
+    top: 441vh;
+    height: 12vh;
     width: 100vw;
     background: #8DBADE;
-    padding: 1rem;
 }
 
 .socials {
