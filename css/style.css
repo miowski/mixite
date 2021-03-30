@@ -350,6 +350,11 @@ footer {
     line-height: 1.5rem;
 }
 
+.contact-info {
+    display: flex;
+    justify-content: center;
+}
+
 button {
     padding: 0.5rem 1rem 0.5rem 1rem;
     border-radius: 3rem;
