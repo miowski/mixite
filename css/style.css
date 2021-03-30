@@ -207,12 +207,17 @@ nav > h1 {
     background: url(../img/guitar-monochrome.jpg) no-repeat;
 }
 
+#section-4 {
+    top: 370vh;
+    background-color: #9226C0;
+}
+
 .search, footer {
     position: absolute;
 }
 
 .search {
-    top: 369vh;
+    top: 459vh;
     height: 75vh;
     width: 100vw;
     background: #2185D6;
