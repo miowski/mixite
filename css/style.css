@@ -8,7 +8,7 @@
 
 /* Règles typographiques de base */
 
-h1, h2 {
+h1, h2, #nav-text-logo {
     font-family: "Playfair Display", sans-serif;
     font-weight: 900;
 }
