@@ -354,6 +354,10 @@ footer {
     line-height: 1.5rem;
 }
 
+.contact {
+    height: 80vh;
+}
+
 .contact > h1 {
     font-size: 5rem;
 }
@@ -369,12 +373,15 @@ footer {
 }
 
 .contact-profile {
+    height: 10rem;
     text-align: center;
     color: white;
     margin: 2rem;
 }
 
 .contact-profile > img {
+    height: 25vh;
+    width: auto;
     border-radius: 100%;
 }
 
