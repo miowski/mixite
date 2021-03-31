@@ -54,6 +54,10 @@ html {
     scroll-snap-stop: always;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 /* sections */
 
 nav {
@@ -62,6 +66,7 @@ nav {
     display: flex;
     justify-content: space-between;
     height: 7vh;
+    width: 100vw;
 }
 
 nav > div {
@@ -299,10 +304,6 @@ nav > h1 {
 
 .slider::-webkit-scrollbar-button {
     display: none;
-}
-
-.slider {
-    scrollbar-width: thin;
 }
 
 .slider > li {
