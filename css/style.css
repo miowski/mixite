@@ -238,7 +238,7 @@ nav > #nav-text-logo {
 
 .search {
     top: 459vh;
-    height: 100vh;
+    height: 110vh;
     width: 100vw;
     background: #2185D6;
     display: flex;
@@ -248,7 +248,7 @@ nav > #nav-text-logo {
 
 .search > h2 {
     position: absolute;
-    top: 10vh;
+    top: 5vh;
     color: white;
     font-size: 3rem;
 }
@@ -257,7 +257,7 @@ nav > #nav-text-logo {
     position: absolute;
     padding: 1rem;
     width: 80vw;
-    height: 65.5vh;
+    height: 80vh;
     bottom: 0;
     border-radius: 1rem 1rem 0 0;
     background: white;
@@ -332,8 +332,8 @@ footer {
 }
 
 .home-footer {
-    top: 559vh;
-    height: 16vh;
+    top: 569vh;
+    height: 21vh;
 }
 
 .socials {
