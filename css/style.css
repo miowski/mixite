@@ -81,6 +81,11 @@ nav > h1 {
     margin: auto 0 auto 1rem;
 }
 
+nav > h1 > a {
+    text-decoration: none;
+    color: white;
+}
+
 #intro {
     height: 103vh;
     width: 100vw;
