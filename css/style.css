@@ -356,6 +356,16 @@ footer {
     justify-content: center;
 }
 
+.contact-profile {
+    text-align: center;
+    color: white;
+    margin: 2rem;
+}
+
+.contact-profile > img {
+    border-radius: 100%;
+}
+
 button {
     padding: 0.5rem 1rem 0.5rem 1rem;
     border-radius: 3rem;
