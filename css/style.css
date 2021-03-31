@@ -321,10 +321,13 @@ nav > h1 {
 }
 
 footer {
-    top: 559vh;
-    height: 16vh;
     width: 100vw;
     background: #8DBADE;
+}
+
+.home-footer {
+    top: 559vh;
+    height: 16vh;
 }
 
 .socials {
@@ -349,6 +352,15 @@ footer {
     justify-content: center;
     text-align: center;
     line-height: 1.5rem;
+}
+
+.contact > h1 {
+    font-size: 5rem;
+}
+
+.contact > h1, .contact > p {
+    text-align: center;
+    color: white;
 }
 
 .contact-info {
