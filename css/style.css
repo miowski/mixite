@@ -336,7 +336,7 @@ footer {
 }
 
 .social {
-    margin-top: 1rem;
+    margin-top: 0.3rem;
     width: 9px;
     border-radius: 2rem;
     background: #8DBADE;
@@ -356,6 +356,11 @@ footer {
 
 .contact {
     height: 80vh;
+}
+
+.contact > #intro-overlay > #intro-background {
+    background: url(../img/scene-instruments.jpg) center;
+    background-size: cover;
 }
 
 .contact > h1 {
