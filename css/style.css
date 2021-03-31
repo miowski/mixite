@@ -8,7 +8,7 @@
 
 /* Règles typographiques de base */
 
-h1, h2 {
+h1, h2, #nav-text-logo {
     font-family: "Playfair Display", sans-serif;
     font-weight: 900;
 }
@@ -77,11 +77,12 @@ nav > div > a {
     margin: 0.5rem 1rem 0.5rem 1rem;
 }
 
-nav > h1 {
+nav > #nav-text-logo {
+    font-size: 2rem;
     margin: auto 0 auto 1rem;
 }
 
-nav > h1 > a {
+#nav-text-logo > a {
     text-decoration: none;
     color: white;
 }
