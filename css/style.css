@@ -336,15 +336,15 @@ footer {
 }
 
 .social {
-    height: 2rem;
-    width: 2rem;
-    padding: 1rem;
-    border-radius: 1rem;
+    margin-top: 1rem;
+    width: 9px;
+    border-radius: 2rem;
     background: #8DBADE;
+    text-indent: -4px;
 }
 
 .social:hover {
-    background: aliceblue;
+    background: #B0CFE8;
 }
 
 .footer-text {
