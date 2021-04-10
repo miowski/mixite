@@ -1,139 +1,85 @@
--- Profils : musicien ou groupe
+-- Base de données pour Mixite
+-- Révision 2
 
-CREATE TABLE Profil
+-- Un musicien & ses informations de profil
+
+CREATE TABLE User
 (
-    idProfil           bigint PRIMARY KEY,
-    dateCreationProfil datetime
+    userID                BIGINT PRIMARY KEY,
+    userCreationDate      DATETIME,
+    userName              VARCHAR(15),
+    userDisplayName       VARCHAR(20),
+    userDescription       VARCHAR(255),
+    userProfilePictureUrl VARCHAR(255),
+    userProfileBannerUrl  VARCHAR(255),
+    userTiktokName        VARCHAR(24),
+    userTwitterName       VARCHAR(15),
+    userInstagramName     VARCHAR(20),
+    userYoutubeName       VARCHAR(50),
+    userSpotifyName       VARCHAR(25),
+    userDeezerName        VARCHAR(50)
 );
 
-CREATE TABLE Groupe
+-- Les identifiants d'un musicien
+-- Table secrète
+
+CREATE TABLE UserCredentials
 (
-    idGroupe           bigint PRIMARY KEY,
-    dateCreationGroupe datetime,
-    adminGroupe        bigint,
-    FOREIGN KEY (adminGroupe) REFERENCES Profil (idProfil)
+    email    VARCHAR(64) PRIMARY KEY,
+    password VARCHAR(32),
+    userID   BIGINT,
+    FOREIGN KEY (userID) REFERENCES User (userID)
 );
 
-CREATE TABLE Groupe_Membres
+-- Un groupe de musique
+
+CREATE TABLE MusicGroup
 (
-    idGroupe          bigint PRIMARY KEY,
-    idProfil          bigint,
-    dateRejointGroupe datetime,
-    FOREIGN KEY (idProfil) REFERENCES Profil (idProfil),
-    FOREIGN KEY (idGroupe) REFERENCES Groupe (idGroupe)
+    mGroupID               BIGINT,
+    mGroupCreationDate     DATETIME,
+    mGroupAdmin            BIGINT,
+    mGroupMembers           VARCHAR(64),
+    mGroupName              VARCHAR(15),
+    mGroupDisplayName       VARCHAR(20),
+    mGroupeDescription      VARCHAR(255),
+    mGroupProfilePictureUrl VARCHAR(255),
+    mGroupProfileBannerUrl  VARCHAR(255),
+    mGroupTiktokName        VARCHAR(25),
+    mGroupTwitterName       VARCHAR(15),
+    mGroupInstagramName     VARCHAR(20),
+    mGroupYoutubeName       VARCHAR(50),
+    mGroupSpotifyName       VARCHAR(25),
+    mGroupDeezerName        VARCHAR(50),
+    FOREIGN KEY (mGroupAdmin) REFERENCES User (userID)
 );
 
--- Infos de profil (partagées par musiciens ET groupes)
-
-CREATE TABLE InfoProfil
-(   publicIdProfil    varchar(14) PRIMARY KEY,
-    NomProfil         varchar(59),
-    descriptionProfil varchar(139),
-    idProfil          bigint,
-    idGroupe          bigint,
-    FOREIGN KEY (idProfil) REFERENCES Profil (IdProfil),
-    FOREIGN KEY (idGroupe) REFERENCES Groupe (idGroupe),
-    -- Vérifie qu'un seul type de profil est sollicité (musicien ou groupe)
-    CONSTRAINT SingleProfileType check (
-            (idProfil IS NULL OR idGroupe IS NULL)
-            AND NOT (idProfil IS NULL AND idGroupe IS NULL)
-        )
-);
-
-CREATE TABLE InfoProfil_Prive
-(
-    mailProfil     varchar(127) PRIMARY KEY,
-    passwordProfil varchar(49),
-    idProfil       bigint,
-    FOREIGN KEY (idProfil) REFERENCES Profil (idProfil)
-);
-
-CREATE TABLE InfoProfil_Reseaux
-(
-    idEnsembleReseaux bigint PRIMARY KEY,
-    youtubeUrl        varchar(127),
-    tiktokUserName    varchar(127),
-    instagramUserName varchar(29),
-    twitterUserName   varchar(14),
-    spotifyUserName   varchar(127),
-    deezerUrl         varchar(127),
-    idProfil          bigint,
-    idGroupe          bigint,
-    FOREIGN KEY (idProfil) REFERENCES InfoProfil (IdProfil),
-    FOREIGN KEY (idGroupe) REFERENCES InfoProfil (idGroupe),
-    -- Vérifie qu'un seul type de profil est sollicité (musicien ou groupe)
-    CONSTRAINT SingleProfileType check (
-            (idProfil IS NULL OR idGroupe IS NULL)
-            AND NOT (idProfil IS NULL AND idGroupe IS NULL)
-        )
-);
-
--- InfoProfil : instruments maitrisés, réservés aux profils de musiciens uniquement
-
-CREATE TABLE InfoProfil_Instrument
-(
-    anneesInstrument tinyint,
-    idInstrument     smallint,
-    idProfil         bigint PRIMARY KEY,
-    FOREIGN KEY (idInstrument) REFERENCES Instrument (idInstrument),
-    FOREIGN KEY (idProfil) REFERENCES InfoProfil (idProfil)
-);
+-- Un instrument de musique
+-- instrumentType contient un numéro identifiant le type d'instrument (Bois, vent, cordes mais aussi chant, mixage, etc.)
 
 CREATE TABLE Instrument
 (
-    idInstrument  smallint PRIMARY KEY,
-    nomInstrument varchar(127)
+    instrumentID   SMALLINT,
+    instrumentName VARCHAR(60),
+    instrumentType SMALLINT
 );
 
--- Publications (pouvant être postées par musiciens ET groupes)
-
-CREATE TABLE Post
+CREATE TABLE PlaysInstrument
 (
-    idPost   bigint PRIMARY KEY,
-    datePost datetime,
-    typePost tinyint,
-    idProfil bigint,
-    idGroupe bigint,
-    FOREIGN KEY (idProfil) REFERENCES Profil (IdProfil),
-    FOREIGN KEY (idGroupe) REFERENCES Groupe (idGroupe)
-    -- Inutile de ne sélectionner qu'un seul type de publicateur ici :
-    -- Un utilisateur peut publier, mais aussi un utilisateur au travers d'un groupe,
-    -- auquel cas l'id de l'utilisateur ET du groupe sont sollicités.
+    instrumentID   SMALLINT,
+    userID         BIGINT,
+    FOREIGN KEY (instrumentID) REFERENCES Instrument (instrumentID),
+    FOREIGN KEY (userID) REFERENCES User (userID),
+    practicesSince SMALLINT
 );
 
--- Médias & texte inclus dans un post
+-- Une publication
+-- Peut être postée par un groupe ou un utilisateur.
 
-CREATE TABLE Post_Contenu
+CREATE TABLE Posts
 (
-    idContenu bigint PRIMARY KEY,
-    imagePost bigint,
-    textePost varchar(279),
-    videoPost bigint,
-    audioPost bigint,
-    idPost    bigint,
-    FOREIGN KEY (idPost) REFERENCES Post (idPost)
-);
-
--- Réalisations d'un groupe ou d'un musicien
--- -- releaseType : 0 = single, 1 = Album
--- -- (Un album est un ensemble de musiques sorties en même temps,
--- -- tandis qu'un Single est une musique seule)
-
-CREATE TABLE InfoProfil_Releases
-(
-    idRelease    bigint PRIMARY KEY,
-    dateRelease  datetime,
-    nameRelease  varchar(127),
-    urlRelease   varchar(127),
-    coverRelease bigint,
-    typeRelease  tinyint,
-    idProfil     bigint,
-    idGroupe     bigint,
-    FOREIGN KEY (idProfil) REFERENCES InfoProfil (IdProfil),
-    FOREIGN KEY (idGroupe) REFERENCES InfoProfil (idGroupe),
-    -- Vérifie qu'un seul type de profil est sollicité (musicien ou groupe)
-    CONSTRAINT SingleProfileType check (
-            (idProfil IS NULL OR idGroupe IS NULL)
-            AND NOT (idProfil IS NULL AND idGroupe IS NULL)
-        )
+    postID           BIGINT,
+    postCreationDate DATETIME,
+    postTitle        VARCHAR(64),
+    postContent      VARCHAR(256),
+    postMediaUrl     VARCHAR(256)
 );
