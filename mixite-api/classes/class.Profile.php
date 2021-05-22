@@ -1,5 +1,5 @@
 <?php
-require_once 'Identity.php';
+require_once 'class.Identity.php';
 
 
 /* Generated from GenMyModel */
