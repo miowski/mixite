@@ -3,6 +3,30 @@
 /* Generated from GenMyModel */
 
 class Post {
+
+    public $ID;
+    public $Publisher;
+    public $Date;
+    public $Title;
+    public $Description;
+    public $Media;
+
+    /**
+     * @return mixed
+     */
+    public function getPublisher()
+    {
+        return $this->Publisher;
+    }
+
+    /**
+     * @param mixed $Publisher
+     */
+    public function setPublisher($Publisher)
+    {
+        $this->Publisher = $Publisher;
+    }
+
     /**
      * @return mixed
      */
@@ -82,11 +106,6 @@ class Post {
     {
         $this->Media = $Media;
     }
-	public $ID;
-	public $Date;
-	public $Title;
-	public $Description;
-	public $Media;
 
     /**
      * Post constructor.
@@ -96,9 +115,10 @@ class Post {
      * @param $Description
      * @param $Media
      */
-    public function __construct($ID, $Date, $Title, $Description, $Media)
+    public function __construct($ID, $Publisher, $Date, $Title, $Description, $Media)
     {
         $this->ID = $ID;
+        $this->Publisher = $Publisher;
         $this->Date = $Date;
         $this->Title = $Title;
         $this->Description = $Description;
