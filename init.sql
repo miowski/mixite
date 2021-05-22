@@ -58,7 +58,7 @@ CREATE TABLE inBand
     profileID BIGINT,
     bandID    INT,
     Since     DATETIME NOT NULL,
-    isAdmin   LOGICAL,
+    isAdmin   BOOLEAN,
     PRIMARY KEY (profileID, bandID),
     FOREIGN KEY (profileID) REFERENCES Profile (ID),
     FOREIGN KEY (bandID) REFERENCES Band (ID)
