@@ -6,3 +6,6 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/dataSources/792bc920-3e7c-4c16-8519-bb6424da0de7.xml
+/dataSources/a839111b-684c-4d44-a034-64ed2085ff32.xml
+/sqldialects.xml

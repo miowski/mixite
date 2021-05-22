@@ -28,8 +28,9 @@ class Band extends Identity
      * Band constructor.
      * @param $Genre
      */
-    public function __construct($Genre)
+    public function __construct($ID, $Name, $Picture, $Banner, $Desc, $JoinDate, $Insta, $Twitter, $Tiktok, $Youtube, $Spotify, $Genre)
     {
+        parent::__construct($ID, $Name, $Picture, $Banner, $Desc, $JoinDate, $Insta, $Twitter, $Tiktok, $Youtube, $Spotify);
         $this->Genre = $Genre;
     }
 }
