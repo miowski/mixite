@@ -1,85 +1,93 @@
--- Base de données pour Mixite
--- Révision 2
-
--- Un musicien & ses informations de profil
-
-CREATE TABLE User
+CREATE TABLE Profile
 (
-    userID                BIGINT PRIMARY KEY,
-    userCreationDate      DATETIME,
-    userName              VARCHAR(15),
-    userDisplayName       VARCHAR(20),
-    userDescription       VARCHAR(255),
-    userProfilePictureUrl VARCHAR(255),
-    userProfileBannerUrl  VARCHAR(255),
-    userTiktokName        VARCHAR(24),
-    userTwitterName       VARCHAR(15),
-    userInstagramName     VARCHAR(20),
-    userYoutubeName       VARCHAR(50),
-    userSpotifyName       VARCHAR(25),
-    userDeezerName        VARCHAR(50)
+    ID          BIGINT AUTO_INCREMENT,
+    Name        VARCHAR(20),
+    Picture     VARCHAR(256),
+    Banner      VARCHAR(256),
+    Description VARCHAR(512),
+    JoinDate    DATETIME,
+    Insta       VARCHAR(20),
+    Spotify     VARCHAR(50),
+    Tiktok      VARCHAR(24),
+    Email       VARCHAR(50),
+    Password    VARCHAR(50),
+    Youtube     VARCHAR(50),
+    PRIMARY KEY (ID),
+    UNIQUE (Name),
+    UNIQUE (Email)
 );
 
--- Les identifiants d'un musicien
--- Table secrète
-
-CREATE TABLE UserCredentials
+CREATE TABLE Post
 (
-    email    VARCHAR(64) PRIMARY KEY,
-    password VARCHAR(32),
-    userID   BIGINT,
-    FOREIGN KEY (userID) REFERENCES User (userID)
+    ID              INT,
+    Publisher       BIGINT,
+    PublicationDate DATETIME    NOT NULL,
+    Title           VARCHAR(64) NOT NULL,
+    Description     VARCHAR(256),
+    Media           INT,
+    PRIMARY KEY (ID),
+    UNIQUE (Media)
 );
 
--- Un groupe de musique
-
-CREATE TABLE MusicGroup
+CREATE TABLE Band
 (
-    mGroupID               BIGINT,
-    mGroupCreationDate     DATETIME,
-    mGroupAdmin            BIGINT,
-    mGroupMembers           VARCHAR(64),
-    mGroupName              VARCHAR(15),
-    mGroupDisplayName       VARCHAR(20),
-    mGroupeDescription      VARCHAR(255),
-    mGroupProfilePictureUrl VARCHAR(255),
-    mGroupProfileBannerUrl  VARCHAR(255),
-    mGroupTiktokName        VARCHAR(25),
-    mGroupTwitterName       VARCHAR(15),
-    mGroupInstagramName     VARCHAR(20),
-    mGroupYoutubeName       VARCHAR(50),
-    mGroupSpotifyName       VARCHAR(25),
-    mGroupDeezerName        VARCHAR(50),
-    FOREIGN KEY (mGroupAdmin) REFERENCES User (userID)
+    ID           INT,
+    Name         VARCHAR(15) NOT NULL,
+    CreationDate DATETIME    NOT NULL,
+    Genre        VARCHAR(50),
+    Description  VARCHAR(256),
+    Profile      INT,
+    Insta        VARCHAR(20),
+    Spotify      VARCHAR(15),
+    Youtube      VARCHAR(50),
+    Tiktok       VARCHAR(25),
+    PRIMARY KEY (ID),
+    UNIQUE (Name)
 );
-
--- Un instrument de musique
--- instrumentType contient un numéro identifiant le type d'instrument (Bois, vent, cordes mais aussi chant, mixage, etc.)
 
 CREATE TABLE Instrument
 (
-    instrumentID   SMALLINT,
-    instrumentName VARCHAR(60),
-    instrumentType SMALLINT
+    ID       INT,
+    Name     VARCHAR(50) NOT NULL,
+    Category INT         NOT NULL,
+    PRIMARY KEY (ID)
+);
+
+CREATE TABLE inBand
+(
+    profileID BIGINT,
+    bandID    INT,
+    Since     DATETIME NOT NULL,
+    isAdmin   LOGICAL,
+    PRIMARY KEY (profileID, bandID),
+    FOREIGN KEY (profileID) REFERENCES Profile (ID),
+    FOREIGN KEY (bandID) REFERENCES Band (ID)
+);
+
+CREATE TABLE Publishes
+(
+    profileID BIGINT,
+    postID    INT,
+    PRIMARY KEY (profileID, postID),
+    FOREIGN KEY (profileID) REFERENCES Profile (ID),
+    FOREIGN KEY (postID) REFERENCES Post (ID)
 );
 
 CREATE TABLE PlaysInstrument
 (
-    instrumentID   SMALLINT,
-    userID         BIGINT,
-    FOREIGN KEY (instrumentID) REFERENCES Instrument (instrumentID),
-    FOREIGN KEY (userID) REFERENCES User (userID),
-    practicesSince SMALLINT
+    profileID    BIGINT,
+    instrumentID INT,
+    Since        DATETIME NOT NULL,
+    PRIMARY KEY (profileID, instrumentID),
+    FOREIGN KEY (profileID) REFERENCES Profile (ID),
+    FOREIGN KEY (instrumentID) REFERENCES Instrument (ID)
 );
 
--- Une publication
--- Peut être postée par un groupe ou un utilisateur.
-
-CREATE TABLE Posts
+CREATE TABLE Likes
 (
-    postID           BIGINT,
-    postCreationDate DATETIME,
-    postTitle        VARCHAR(64),
-    postContent      VARCHAR(256),
-    postMediaUrl     VARCHAR(256)
+    ID   BIGINT,
+    ID_1 INT,
+    PRIMARY KEY (ID, ID_1),
+    FOREIGN KEY (ID) REFERENCES Profile (ID),
+    FOREIGN KEY (ID_1) REFERENCES Post (ID)
 );
