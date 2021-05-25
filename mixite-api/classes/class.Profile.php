@@ -1,62 +1,90 @@
 <?php
-require_once 'class.Identity.php';
-
-
-/* Generated from GenMyModel */
+require_once('class.Identity.php');
 
 class Profile extends Identity {
-    private $Email;
-    private $Password;
 
-    /**
-     * Profile constructor.
-     * @param $Email
-     * @param $Password
-     */
-    public function __construct($ID, $Name, $Picture, $Banner, $Desc, $JoinDate, $Insta, $Twitter, $Tiktok, $Youtube, $Spotify, $Email, $Password)
-    {
-        parent::__construct($ID, $Name, $Picture, $Banner, $Desc, $JoinDate, $Insta, $Twitter, $Tiktok, $Youtube, $Spotify);
-        $this->Email = $Email;
-        $this->Password = $Password;
-    }
+    private $email = null;
+    private $password = null;
 
-    /**
-     * @return mixed
-     */
+    private array $publishedPosts = array();
+    private array $likedPosts = array();
+    private array $playedInstruments = array();
+    private array $inBands = array();
+
     public function getEmail()
     {
-        return $this->Email;
+        return $this->email;
     }
 
-    /**
-     * @param mixed $Email
-     */
-    public function setEmail($Email)
+    public function setEmail($email)
     {
-        $this->Email = $Email;
+        $this->email = $email;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getPassword()
     {
-        return $this->Password;
+        return $this->password;
     }
 
-    /**
-     * @param mixed $Password
-     */
-    public function setPassword($Password)
+    public function setPassword($password)
     {
-        $this->Password = $Password;
+        $this->password = $password;
+        return $this;
     }
 
-    /**
-     * Profile constructor.
-     * @param $Email
-     * @param $Password
-     */
+    public function getPublishedPosts(): array
+    {
+        return $this->publishedPosts;
+    }
 
+    public function setPublishedPosts(array $publishedPosts): Profile
+    {
+        $this->publishedPosts = $publishedPosts;
+        return $this;
+    }
 
+    public function getLikedPosts(): array
+    {
+        return $this->likedPosts;
+    }
+
+    public function setLikedPosts(array $likedPosts): Profile
+    {
+        $this->likedPosts = $likedPosts;
+        return $this;
+    }
+
+    public function getPlayedInstruments(): array
+    {
+        return $this->playedInstruments;
+    }
+
+    public function setPlayedInstruments(array $playedInstruments): Profile
+    {
+        $this->playedInstruments = $playedInstruments;
+        return $this;
+    }
+
+    public function getInBands(): array
+    {
+        return $this->inBands;
+    }
+
+    public function setInBands(array $inBands): Profile
+    {
+        $this->inBands = $inBands;
+        return $this;
+    }
+
+    public function __construct(int $id, $name, int $picture, int $banner, $description, $joinDate, $insta, $twitter, $tiktok, $youtube, $spotify, $email, $password, array $publishedPosts, array $likedPosts, array $playedInstruments, array $inBands)
+    {
+        parent::__construct($id, $name, $picture, $banner, $description, $joinDate, $insta, $twitter, $tiktok, $youtube, $spotify);
+        $this->email = $email;
+        $this->password = $password;
+        $this->publishedPosts = $publishedPosts;
+        $this->likedPosts = $likedPosts;
+        $this->playedInstruments = $playedInstruments;
+        $this->inBands = $inBands;
+    }
 }

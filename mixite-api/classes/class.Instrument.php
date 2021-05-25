@@ -1,70 +1,64 @@
 <?php
 
-/* Generated from GenMyModel */
+require_once('class.Profile.php');
 
 class Instrument {
-    /**
-     * @return mixed
-     */
-    public function getInstrumentID()
+
+    private int $id = 0;
+    private $name = null;
+    private $category = null;
+
+    private array $playingUsers = array();
+
+    public function getId(): int
     {
-        return $this->instrumentID;
+        return $this->id;
     }
 
-    /**
-     * @param mixed $instrumentID
-     */
-    public function setInstrumentID($instrumentID)
+    public function setId(int $id): Instrument
     {
-        $this->instrumentID = $instrumentID;
+        $this->id = $id;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getInstrumentName()
+    public function getName()
     {
-        return $this->instrumentName;
+        return $this->name;
     }
 
-    /**
-     * @param mixed $instrumentName
-     */
-    public function setInstrumentName($instrumentName)
+    public function setName($name)
     {
-        $this->instrumentName = $instrumentName;
+        $this->name = $name;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getInstrumentCategory()
+    public function getCategory()
     {
-        return $this->instrumentCategory;
+        return $this->category;
     }
 
-    /**
-     * @param mixed $instrumentCategory
-     */
-    public function setInstrumentCategory($instrumentCategory)
+    public function setCategory($category)
     {
-        $this->instrumentCategory = $instrumentCategory;
-    }
-	public $instrumentID;
-	public $instrumentName;
-	public $instrumentCategory;
-
-    /**
-     * Instrument constructor.
-     * @param $instrumentID
-     * @param $instrumentName
-     * @param $instrumentCategory
-     */
-    public function __construct($instrumentID, $instrumentName, $instrumentCategory)
-    {
-        $this->instrumentID = $instrumentID;
-        $this->instrumentName = $instrumentName;
-        $this->instrumentCategory = $instrumentCategory;
+        $this->category = $category;
+        return $this;
     }
 
+    public function getPlayingUsers(): array
+    {
+        return $this->playingUsers;
+    }
+
+    public function setPlayingUsers(array $playingUsers): Instrument
+    {
+        $this->playingUsers = $playingUsers;
+        return $this;
+    }
+
+    public function __construct(int $id, $name, $category, array $playingUsers)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->category = $category;
+        $this->playingUsers = $playingUsers;
+    }
 }

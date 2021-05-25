@@ -1,33 +1,22 @@
 <?php
 
-/* Generated from GenMyModel */
-
 class PlayedInstrument {
-	public $Date;
 
-    /**
-     * PlayedInstrument constructor.
-     * @param $Date
-     */
-    public function __construct($Date)
+    private $since = null;
+
+    public function getSince()
     {
-        $this->Date = $Date;
+        return $this->since;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDate()
+    public function setSince($since)
     {
-        return $this->Date;
+        $this->since = $since;
+        return $this;
     }
 
-    /**
-     * @param mixed $Date
-     */
-    public function setDate($Date)
+    public function __construct($since)
     {
-        $this->Date = $Date;
+        $this->since = $since;
     }
-
 }

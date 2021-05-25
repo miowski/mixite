@@ -1,225 +1,153 @@
 <?php
 
-/* Generated from GenMyModel */
-
 class Identity
 {
+    private int $id = 0;
+    private $name = null;
+    private int $picture = 0;
+    private int $banner = 0;
+    private $description = null;
+    private $joinDate = null;
+    private $insta = null;
+    private $twitter = null;
+    private $tiktok = null;
+    private $youtube = null;
+    private $spotify = null;
 
-    public $ID;
-    public $Name;
-    public $Picture;
-    public $Banner;
-    public $Desc;
-    public $JoinDate;
-    public $Insta;
-    public $Twitter;
-    public $Tiktok;
-    public $Youtube;
-    public $Spotify;
-
-    /**
-     * @return mixed
-     */
-    public function getID()
+    public function getId(): int
     {
-        return $this->ID;
+        return $this->id;
     }
 
-    /**
-     * @param mixed $ID
-     */
-    public function setID($ID)
+    public function setId(int $id): Identity
     {
-        $this->ID = $ID;
+        $this->id = $id;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getName()
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    /**
-     * @param mixed $Name
-     */
-    public function setName($Name)
+    public function setName($name)
     {
-        $this->Name = $Name;
+        $this->name = $name;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPicture()
+    public function getPicture(): int
     {
-        return $this->Picture;
+        return $this->picture;
     }
 
-    /**
-     * @param mixed $Picture
-     */
-    public function setPicture($Picture)
+
+    public function setPicture(int $picture): Identity
     {
-        $this->Picture = $Picture;
+        $this->picture = $picture;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getBanner()
+    public function getBanner(): int
     {
-        return $this->Banner;
+        return $this->banner;
     }
 
-    /**
-     * @param mixed $Banner
-     */
-    public function setBanner($Banner)
+    public function setBanner(int $banner): Identity
     {
-        $this->Banner = $Banner;
+        $this->banner = $banner;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDesc()
+    public function getDescription()
     {
-        return $this->Desc;
+        return $this->description;
     }
 
-    /**
-     * @param mixed $Desc
-     */
-    public function setDesc($Desc)
+    public function setDescription($description)
     {
-        $this->Desc = $Desc;
+        $this->description = $description;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getJoinDate()
     {
-        return $this->JoinDate;
+        return $this->joinDate;
     }
 
-    /**
-     * @param mixed $JoinDate
-     */
-    public function setJoinDate($JoinDate)
+    public function setJoinDate($joinDate)
     {
-        $this->JoinDate = $JoinDate;
+        $this->joinDate = $joinDate;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getInsta()
     {
-        return $this->Insta;
+        return $this->insta;
     }
 
-    /**
-     * @param mixed $Insta
-     */
-    public function setInsta($Insta)
+    public function setInsta($insta)
     {
-        $this->Insta = $Insta;
+        $this->insta = $insta;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getTwitter()
     {
-        return $this->Twitter;
+        return $this->twitter;
     }
 
-    /**
-     * @param mixed $Twitter
-     */
-    public function setTwitter($Twitter)
+    public function setTwitter($twitter)
     {
-        $this->Twitter = $Twitter;
+        $this->twitter = $twitter;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getTiktok()
     {
-        return $this->Tiktok;
+        return $this->tiktok;
     }
 
-    /**
-     * @param mixed $Tiktok
-     */
-    public function setTiktok($Tiktok)
+    public function setTiktok($tiktok)
     {
-        $this->Tiktok = $Tiktok;
+        $this->tiktok = $tiktok;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getYoutube()
     {
-        return $this->Youtube;
+        return $this->youtube;
     }
 
-    /**
-     * @param mixed $Youtube
-     */
-    public function setYoutube($Youtube)
+    public function setYoutube($youtube)
     {
-        $this->Youtube = $Youtube;
+        $this->youtube = $youtube;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getSpotify()
     {
-        return $this->Spotify;
+        return $this->spotify;
     }
 
-    /**
-     * @param mixed $Spotify
-     */
-    public function setSpotify($Spotify)
+    public function setSpotify($spotify)
     {
-        $this->Spotify = $Spotify;
+        $this->spotify = $spotify;
+        return $this;
     }
 
-    /**
-     * Identity constructor.
-     * @param $ID
-     * @param $Name
-     * @param $Picture
-     * @param $Banner
-     * @param $Desc
-     * @param $JoinDate
-     * @param $Insta
-     * @param $Twitter
-     * @param $Tiktok
-     * @param $Youtube
-     * @param $Spotify
-     */
-    public function __construct($ID, $Name, $Picture, $Banner, $Desc, $JoinDate, $Insta, $Twitter, $Tiktok, $Youtube, $Spotify)
+    public function __construct(int $id, $name, int $picture, int $banner, $description, $joinDate, $insta, $twitter, $tiktok, $youtube, $spotify)
     {
-        $this->ID = $ID;
-        $this->Name = $Name;
-        $this->Picture = $Picture;
-        $this->Banner = $Banner;
-        $this->Desc = $Desc;
-        $this->JoinDate = $JoinDate;
-        $this->Insta = $Insta;
-        $this->Twitter = $Twitter;
-        $this->Tiktok = $Tiktok;
-        $this->Youtube = $Youtube;
-        $this->Spotify = $Spotify;
+        $this->id = $id;
+        $this->name = $name;
+        $this->picture = $picture;
+        $this->banner = $banner;
+        $this->description = $description;
+        $this->joinDate = $joinDate;
+        $this->insta = $insta;
+        $this->twitter = $twitter;
+        $this->tiktok = $tiktok;
+        $this->youtube = $youtube;
+        $this->spotify = $spotify;
     }
-
 }

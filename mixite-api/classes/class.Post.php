@@ -1,128 +1,118 @@
 <?php
 
+require_once('class.Profile.php');
+
 /* Generated from GenMyModel */
 
 class Post {
 
-    public $ID;
-    public $Publisher;
-    public $Date;
-    public $Title;
-    public $Description;
-    public $Media;
+    private int $id = 0;
+    private int $publisher = 0;
+    private $date = null;
+    private $title = null;
+    private $description = null;
+    private $media = null;
 
-    /**
-     * @return mixed
-     */
-    public function getPublisher()
+    private array $publishingUsers = array();
+    private array $likingUsers = array();
+
+    public function getId(): int
     {
-        return $this->Publisher;
+        return $this->id;
     }
 
-    /**
-     * @param mixed $Publisher
-     */
-    public function setPublisher($Publisher)
+    public function setId(int $id): Post
     {
-        $this->Publisher = $Publisher;
+        $this->id = $id;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getID()
+    public function getPublisher(): int
     {
-        return $this->ID;
+        return $this->publisher;
     }
 
-    /**
-     * @param mixed $ID
-     */
-    public function setID($ID)
+    public function setPublisher(int $publisher): Post
     {
-        $this->ID = $ID;
+        $this->publisher = $publisher;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDate()
     {
-        return $this->Date;
+        return $this->date;
     }
 
-    /**
-     * @param mixed $Date
-     */
-    public function setDate($Date)
+    public function setDate($date)
     {
-        $this->Date = $Date;
+        $this->date = $date;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getTitle()
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    /**
-     * @param mixed $Title
-     */
-    public function setTitle($Title)
+    public function setTitle($title)
     {
-        $this->Title = $Title;
+        $this->title = $title;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDescription()
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    /**
-     * @param mixed $Description
-     */
-    public function setDescription($Description)
+    public function setDescription($description)
     {
-        $this->Description = $Description;
+        $this->description = $description;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getMedia()
     {
-        return $this->Media;
+        return $this->media;
     }
 
-    /**
-     * @param mixed $Media
-     */
-    public function setMedia($Media)
+    public function setMedia($media)
     {
-        $this->Media = $Media;
+        $this->media = $media;
+        return $this;
     }
 
-    /**
-     * Post constructor.
-     * @param $ID
-     * @param $Date
-     * @param $Title
-     * @param $Description
-     * @param $Media
-     */
-    public function __construct($ID, $Publisher, $Date, $Title, $Description, $Media)
+    public function getPublishingUsers(): array
     {
-        $this->ID = $ID;
-        $this->Publisher = $Publisher;
-        $this->Date = $Date;
-        $this->Title = $Title;
-        $this->Description = $Description;
-        $this->Media = $Media;
+        return $this->publishingUsers;
     }
 
+    public function setPublishingUsers(array $publishingUsers): Post
+    {
+        $this->publishingUsers = $publishingUsers;
+        return $this;
+    }
+
+    public function getLikingUsers(): array
+    {
+        return $this->likingUsers;
+    }
+
+    public function setLikingUsers(array $likingUsers): Post
+    {
+        $this->likingUsers = $likingUsers;
+        return $this;
+    }
+
+    public function __construct(int $id, int $publisher, $date, $title, $description, $media, array $publishingUsers, array $likingUsers)
+    {
+        $this->id = $id;
+        $this->publisher = $publisher;
+        $this->date = $date;
+        $this->title = $title;
+        $this->description = $description;
+        $this->media = $media;
+        $this->publishingUsers = $publishingUsers;
+        $this->likingUsers = $likingUsers;
+    }
 }
