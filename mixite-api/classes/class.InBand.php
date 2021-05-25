@@ -1,6 +1,6 @@
 <?php
 
-class InBand {
+class InBand implements JsonSerializable {
 
     private $since = null;
 
@@ -18,5 +18,10 @@ class InBand {
     {
         $this->since = $since;
         return $this;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return get_object_vars($this);
     }
 }

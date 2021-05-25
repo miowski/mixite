@@ -2,7 +2,7 @@
 
 require_once('class.Profile.php');
 
-class Instrument {
+class Instrument implements JsonSerializable {
 
     private int $id = 0;
     private $name = null;
@@ -60,5 +60,10 @@ class Instrument {
         $this->name = $name;
         $this->category = $category;
         $this->playingUsers = $playingUsers;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return get_object_vars($this);
     }
 }

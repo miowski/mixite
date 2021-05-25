@@ -4,7 +4,8 @@ require_once('class.Profile.php');
 
 /* Generated from GenMyModel */
 
-class Post {
+class Post
+{
 
     private int $id = 0;
     private int $publisher = 0;
@@ -114,5 +115,10 @@ class Post {
         $this->media = $media;
         $this->publishingUsers = $publishingUsers;
         $this->likingUsers = $likingUsers;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return get_object_vars($this);
     }
 }

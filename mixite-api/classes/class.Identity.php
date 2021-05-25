@@ -1,6 +1,6 @@
 <?php
 
-class Identity
+class Identity implements JsonSerializable
 {
     private int $id = 0;
     private $name = null;
@@ -149,5 +149,10 @@ class Identity
         $this->tiktok = $tiktok;
         $this->youtube = $youtube;
         $this->spotify = $spotify;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return get_object_vars($this);
     }
 }

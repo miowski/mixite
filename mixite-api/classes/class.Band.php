@@ -1,7 +1,7 @@
 <?php
 require_once 'class.Identity.php';
 
-class Band extends Identity {
+class Band extends Identity implements JsonSerializable {
 
     private $genre = null;
 
@@ -17,5 +17,10 @@ class Band extends Identity {
         parent::__construct($id, $name, $picture, $banner, $description, $joinDate, $insta, $twitter, $tiktok, $youtube, $spotify);
         $this->genre = $genre;
         $this->members = $members;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return get_object_vars($this);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 require_once('class.Identity.php');
 
-class Profile extends Identity {
+class Profile extends Identity implements JsonSerializable {
 
     private $email = null;
     private $password = null;
@@ -86,5 +86,10 @@ class Profile extends Identity {
         $this->likedPosts = $likedPosts;
         $this->playedInstruments = $playedInstruments;
         $this->inBands = $inBands;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return get_object_vars($this);
     }
 }

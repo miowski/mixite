@@ -1,6 +1,6 @@
 <?php
 
-class PlayedInstrument {
+class PlayedInstrument implements JsonSerializable {
 
     private $since = null;
 
@@ -18,5 +18,10 @@ class PlayedInstrument {
     public function __construct($since)
     {
         $this->since = $since;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return get_object_vars($this);
     }
 }
