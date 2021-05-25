@@ -105,7 +105,7 @@ class Post
         return $this;
     }
 
-    public function __construct(int $id, int $publisher, $date, $title, $description, $media, array $publishingUsers, array $likingUsers)
+    public function __construct(int $id, int $publisher, $date, $title, $description, $media)
     {
         $this->id = $id;
         $this->publisher = $publisher;
@@ -113,8 +113,6 @@ class Post
         $this->title = $title;
         $this->description = $description;
         $this->media = $media;
-        $this->publishingUsers = $publishingUsers;
-        $this->likingUsers = $likingUsers;
     }
 
     public function jsonSerialize(): array

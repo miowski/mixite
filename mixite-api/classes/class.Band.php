@@ -12,11 +12,10 @@ class Band extends Identity implements JsonSerializable {
     public function getMembers(): array {return $this->members;}
     public function setMembers(array $members): void {$this->members = $members;}
 
-    public function __construct(int $id, $name, int $picture, int $banner, $description, $joinDate, $insta, $twitter, $tiktok, $youtube, $spotify, $genre, array $members)
+    public function __construct(int $id, $name, int $picture, int $banner, $description, $joinDate, $insta, $twitter, $tiktok, $youtube, $spotify, $genre)
     {
         parent::__construct($id, $name, $picture, $banner, $description, $joinDate, $insta, $twitter, $tiktok, $youtube, $spotify);
         $this->genre = $genre;
-        $this->members = $members;
     }
 
     public function jsonSerialize(): array

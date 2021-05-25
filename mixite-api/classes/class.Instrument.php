@@ -54,12 +54,11 @@ class Instrument implements JsonSerializable {
         return $this;
     }
 
-    public function __construct(int $id, $name, $category, array $playingUsers)
+    public function __construct(int $id, $name, $category)
     {
         $this->id = $id;
         $this->name = $name;
         $this->category = $category;
-        $this->playingUsers = $playingUsers;
     }
 
     public function jsonSerialize(): array
