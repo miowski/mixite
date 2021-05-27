@@ -1,55 +1,55 @@
 CREATE TABLE Profile
 (
     ID          BIGINT AUTO_INCREMENT,
-    Name        VARCHAR(20),
-    Picture     VARCHAR(256),
-    Banner      VARCHAR(256),
-    Description VARCHAR(512),
-    JoinDate    DATETIME,
-    Insta       VARCHAR(20),
-    Spotify     VARCHAR(50),
-    Tiktok      VARCHAR(24),
-    Email       VARCHAR(50),
-    Password    VARCHAR(50),
-    Youtube     VARCHAR(50),
+    name        VARCHAR(20),
+    picture     VARCHAR(256),
+    banner      VARCHAR(256),
+    description VARCHAR(512),
+    joinDate    DATETIME,
+    insta       VARCHAR(20),
+    spotify     VARCHAR(50),
+    tiktok      VARCHAR(24),
+    youtube     VARCHAR(50),
+    email       VARCHAR(50),
+    password    VARCHAR(50),
     PRIMARY KEY (ID),
-    UNIQUE (Name),
-    UNIQUE (Email)
+    UNIQUE (name),
+    UNIQUE (email)
 );
 
 CREATE TABLE Post
 (
-    ID              INT,
-    Publisher       BIGINT,
-    PublicationDate DATETIME    NOT NULL,
-    Title           VARCHAR(64) NOT NULL,
-    Description     VARCHAR(256),
-    Media           INT,
+    ID              BIGINT,
+    publisher       BIGINT,
+    publicationDate DATETIME    NOT NULL,
+    title           VARCHAR(64) NOT NULL,
+    description     VARCHAR(256),
+    media           INT,
     PRIMARY KEY (ID),
-    UNIQUE (Media)
+    UNIQUE (media)
 );
 
 CREATE TABLE Band
 (
     ID           INT,
-    Name         VARCHAR(15) NOT NULL,
-    CreationDate DATETIME    NOT NULL,
-    Genre        VARCHAR(50),
-    Description  VARCHAR(256),
-    Profile      INT,
-    Insta        VARCHAR(20),
-    Spotify      VARCHAR(15),
-    Youtube      VARCHAR(50),
-    Tiktok       VARCHAR(25),
+    name         VARCHAR(15) NOT NULL,
+    creationDate DATETIME    NOT NULL,
+    genre        VARCHAR(50),
+    description  VARCHAR(256),
+    profile      INT,
+    insta        VARCHAR(20),
+    spotify      VARCHAR(15),
+    youtube      VARCHAR(50),
+    tiktok       VARCHAR(25),
     PRIMARY KEY (ID),
-    UNIQUE (Name)
+    UNIQUE (name)
 );
 
 CREATE TABLE Instrument
 (
     ID       INT,
-    Name     VARCHAR(50) NOT NULL,
-    Category INT         NOT NULL,
+    name     VARCHAR(50) NOT NULL,
+    category INT         NOT NULL,
     PRIMARY KEY (ID)
 );
 
@@ -57,7 +57,7 @@ CREATE TABLE inBand
 (
     profileID BIGINT,
     bandID    INT,
-    Since     DATETIME NOT NULL,
+    since     DATETIME NOT NULL,
     isAdmin   BOOLEAN,
     PRIMARY KEY (profileID, bandID),
     FOREIGN KEY (profileID) REFERENCES Profile (ID),
@@ -67,7 +67,7 @@ CREATE TABLE inBand
 CREATE TABLE Publishes
 (
     profileID BIGINT,
-    postID    INT,
+    postID    BIGINT,
     PRIMARY KEY (profileID, postID),
     FOREIGN KEY (profileID) REFERENCES Profile (ID),
     FOREIGN KEY (postID) REFERENCES Post (ID)
@@ -85,9 +85,9 @@ CREATE TABLE PlaysInstrument
 
 CREATE TABLE Likes
 (
-    ID   BIGINT,
-    ID_1 INT,
-    PRIMARY KEY (ID, ID_1),
-    FOREIGN KEY (ID) REFERENCES Profile (ID),
-    FOREIGN KEY (ID_1) REFERENCES Post (ID)
+    profileID   BIGINT,
+    postID BIGINT,
+    PRIMARY KEY (profileID, postID),
+    FOREIGN KEY (profileID) REFERENCES Profile (ID),
+    FOREIGN KEY (postID) REFERENCES Post (ID)
 );
