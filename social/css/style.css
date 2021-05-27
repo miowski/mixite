@@ -1,0 +1,44 @@
+/* Import des polices */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap');
+
+/* Règles typographiques de base */
+
+h1, h2, #nav-text-logo {
+    font-family: "Playfair Display", sans-serif;
+    font-weight: 900;
+}
+
+h3 {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+p, ul > li, .search-filter {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 300;
+}
+
+
+input {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+}
+
+nav > div {
+    font-family: "Work Sans", sans-serif;
+}
+
+button {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+}
+
+#search-bar {
+    padding: 0.85rem;
+    border: solid 2px #AAA2F5;
+    border-radius: 0.5rem;
+}
