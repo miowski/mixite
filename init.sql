@@ -17,6 +17,16 @@ CREATE TABLE Profile
     UNIQUE (email)
 );
 
+CREATE TABLE Befriends
+(
+    profile1 BIGINT NOT NULL,
+    profile2 BIGINT NOT NULL,
+    since DATETIME NOT NULL,
+    PRIMARY KEY (profile1, profile2),
+    FOREIGN KEY (profile1) REFERENCES Profile(ID),
+    FOREIGN KEY (profile1) REFERENCES Profile(ID)
+);
+
 CREATE TABLE Post
 (
     ID              BIGINT,
