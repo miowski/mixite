@@ -8,11 +8,13 @@ class Post implements JsonSerializable
 {
 
     private int $id = 0;
-    private int $publisher = 0;
+    private int $idPublisher = 0;
     private $date = null;
     private $title = null;
     private $description = null;
     private $media = null;
+
+    private $publisher = null;
 
     private array $publishingUsers = array();
     private array $likingUsers = array();
@@ -28,12 +30,23 @@ class Post implements JsonSerializable
         return $this;
     }
 
+    public function getIdPublisher(): int
+    {
+        return $this->idPublisher;
+    }
+
+    public function setIdPublisher(int $idPublisher): Post
+    {
+        $this->idPublisher = $idPublisher;
+        return $this;
+    }
+
     public function getPublisher(): int
     {
         return $this->publisher;
     }
 
-    public function setPublisher(int $publisher): Post
+    public function setPublisher($publisher): Post
     {
         $this->publisher = $publisher;
         return $this;
@@ -105,10 +118,10 @@ class Post implements JsonSerializable
         return $this;
     }
 
-    public function __construct(int $id, int $publisher, $date, $title, $description, $media)
+    public function __construct(int $id, int $idPublisher, $date, $title, $description, $media)
     {
         $this->id = $id;
-        $this->publisher = $publisher;
+        $this->idPublisher = $idPublisher;
         $this->date = $date;
         $this->title = $title;
         $this->description = $description;

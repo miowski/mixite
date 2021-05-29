@@ -77,9 +77,9 @@ class Profile extends Identity implements JsonSerializable {
         return $this;
     }
 
-    public function __construct(int $id, $name, int $picture, int $banner, $description, $joinDate, $insta, $twitter, $tiktok, $youtube, $spotify, $email, $password)
+    public function __construct(int $id, $name, int $picture, int $banner, $description, $joinDate, $insta, $tiktok, $youtube, $spotify, $email, $password)
     {
-        parent::__construct($id, $name, $picture, $banner, $description, $joinDate, $insta, $twitter, $tiktok, $youtube, $spotify);
+        parent::__construct($id, $name, $picture, $banner, $description, $joinDate, $insta, $tiktok, $youtube, $spotify);
         $this->email = $email;
         $this->password = $password;
     }

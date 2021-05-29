@@ -9,7 +9,6 @@ class Identity implements JsonSerializable
     private $description = null;
     private $joinDate = null;
     private $insta = null;
-    private $twitter = null;
     private $tiktok = null;
     private $youtube = null;
     private $spotify = null;
@@ -92,17 +91,6 @@ class Identity implements JsonSerializable
         return $this;
     }
 
-    public function getTwitter()
-    {
-        return $this->twitter;
-    }
-
-    public function setTwitter($twitter)
-    {
-        $this->twitter = $twitter;
-        return $this;
-    }
-
     public function getTiktok()
     {
         return $this->tiktok;
@@ -136,7 +124,7 @@ class Identity implements JsonSerializable
         return $this;
     }
 
-    public function __construct(int $id, $name, int $picture, int $banner, $description, $joinDate, $insta, $twitter, $tiktok, $youtube, $spotify)
+    public function __construct(int $id, $name, int $picture, int $banner, $description, $joinDate, $insta, $tiktok, $youtube, $spotify)
     {
         $this->id = $id;
         $this->name = $name;
@@ -145,7 +133,6 @@ class Identity implements JsonSerializable
         $this->description = $description;
         $this->joinDate = $joinDate;
         $this->insta = $insta;
-        $this->twitter = $twitter;
         $this->tiktok = $tiktok;
         $this->youtube = $youtube;
         $this->spotify = $spotify;
