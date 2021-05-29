@@ -1,27 +1,23 @@
 let Accueil = Vue.component('Accueil', {
     template: `
     <main>
-    <div class="feed">
+    <div v-for="post in postList" :key="post.id" class="feed">
         <div class="post">
-            <h3 class="title">Premier post !</h3>
-            <p class="description">Ceci est le premier post de Mixite.</p>
-        </div>
-    </div>
-    <div class="feed">
-        <div class="post">
-            <h3 class="title">Premier post !</h3>
-            <p class="description">Ceci est le premier post de Mixite.</p>
+            <h3 class="title">{{ post.title }}</h3>
+            <sub>{{ post.publisher }}</sub>
+            <p class="description">{{ post.description }}</p>
         </div>
     </div>
     </main>
 `,
     data() {
         return {
-            postList: []
+            postList: [],
+            publisherList: []
         }
     },
     mounted() {
-        axios.get('http://localhost/mixite/mixite-api/listPosts.php')
+        axios.get('http://localhost/mixite/mixite-api/controllers/listPosts.php')
             .then(response => {
                 this.postList = response.data;
                 console.log("Post list : ", this.postList)

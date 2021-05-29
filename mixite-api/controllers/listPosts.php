@@ -1,7 +1,7 @@
 <?php
 
-require_once('cnx.php');
-require_once('classes/class.Post.php');
+require_once('../cnx.php');
+require_once('../classes/class.Post.php');
 
 header("Access-Control-Allow-Origin: *");
 
