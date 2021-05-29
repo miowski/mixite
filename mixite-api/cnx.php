@@ -1,5 +1,7 @@
 <?php
 
+ini_set('display_errors', 'On');
+
 $parameters = parse_ini_file("param/param.ini");
 
 $pdo = new PDO(
@@ -10,5 +12,3 @@ $pdo = new PDO(
 );
 
 $host = $parameters['host'];
-
-?>
