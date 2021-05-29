@@ -4,7 +4,7 @@ require_once('class.Profile.php');
 
 /* Generated from GenMyModel */
 
-class Post
+class Post implements JsonSerializable
 {
 
     private int $id = 0;
