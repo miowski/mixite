@@ -13,7 +13,6 @@ $list = array();
 if ($request->execute()) {
 
     while ($data = $request->fetch()) {
-
         $post = new Post(
             $data['ID'],
             $data['publisher'],
@@ -22,6 +21,34 @@ if ($request->execute()) {
             $data['description'],
             $data['media'],
         );
+
+        $sqlProfile = "SELECT * FROM profile WHERE ID = 1";
+        $requestProfile = $pdo->prepare($sqlProfile);
+        //$requestProfile->bindValue(1, $data['publisher']);
+
+        if ($requestProfile->execute()) {
+
+            while($profileData = $requestProfile->fetch()) {
+                //echo var_dump($profileData);
+                $publisher = new Profile(
+                    $profileData["ID"],
+                    $profileData["name"],
+                    null,
+                    null,
+                    $profileData["description"],
+                    $profileData["joinDate"],
+                    $profileData["insta"],
+                    $profileData["spotify"],
+                    $profileData["tiktok"],
+                    $profileData["youtube"],
+                    $profileData["email"],
+                    $profileData["password"],
+                );
+                $post->setPublisher($publisher);
+            }
+        }
+
+
 
         $list[] = $post;
     }
