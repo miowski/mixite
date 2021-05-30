@@ -1,20 +1,14 @@
 <?php
 
-require_once('class.Profile.php');
-
 /* Generated from GenMyModel */
 
 class Post implements JsonSerializable
 {
 
     private int $id = 0;
-    private int $idPublisher = 0;
-    private $date = null;
     private $title = null;
     private $description = null;
     private $media = null;
-
-    private $publisher = null;
 
     private array $publishingUsers = array();
     private array $likingUsers = array();

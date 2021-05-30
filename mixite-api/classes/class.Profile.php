@@ -3,6 +3,7 @@ require_once('class.Identity.php');
 
 class Profile extends Identity implements JsonSerializable {
 
+
     private $email = null;
     private $password = null;
 
@@ -10,6 +11,7 @@ class Profile extends Identity implements JsonSerializable {
     private array $likedPosts = array();
     private array $playedInstruments = array();
     private array $inBands = array();
+    private array $friends = array();
 
     public function getEmail()
     {
@@ -74,6 +76,19 @@ class Profile extends Identity implements JsonSerializable {
     public function setInBands(array $inBands): Profile
     {
         $this->inBands = $inBands;
+        return $this;
+    }
+
+
+    public function getFriends(): array
+    {
+        return $this->friends;
+    }
+
+
+    public function setFriends(array $friends): Profile
+    {
+        $this->friends = $friends;
         return $this;
     }
 
