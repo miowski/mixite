@@ -19,19 +19,17 @@ CREATE TABLE Profile
 
 CREATE TABLE Befriends
 (
-    profile1 BIGINT NOT NULL,
-    profile2 BIGINT NOT NULL,
-    since DATETIME NOT NULL,
+    profile1 BIGINT   NOT NULL,
+    profile2 BIGINT   NOT NULL,
+    since    DATETIME NOT NULL,
     PRIMARY KEY (profile1, profile2),
-    FOREIGN KEY (profile1) REFERENCES Profile(ID),
-    FOREIGN KEY (profile1) REFERENCES Profile(ID)
+    FOREIGN KEY (profile1) REFERENCES Profile (ID),
+    FOREIGN KEY (profile1) REFERENCES Profile (ID)
 );
 
 CREATE TABLE Post
 (
     ID              BIGINT,
-    publisher       BIGINT,
-    publicationDate DATETIME    NOT NULL,
     title           VARCHAR(64) NOT NULL,
     description     VARCHAR(256),
     media           INT,
@@ -39,10 +37,22 @@ CREATE TABLE Post
     UNIQUE (media)
 );
 
+CREATE TABLE Publishes
+(
+    profileID BIGINT,
+    postID    BIGINT,
+    publicationDate DATETIME,
+    PRIMARY KEY (profileID, postID),
+    FOREIGN KEY (profileID) REFERENCES Profile (ID),
+    FOREIGN KEY (postID) REFERENCES Post (ID)
+);
+
 CREATE TABLE Band
 (
     ID           INT,
     name         VARCHAR(15) NOT NULL,
+    picture      VARCHAR(256),
+    banner       VARCHAR(256),
     creationDate DATETIME    NOT NULL,
     genre        VARCHAR(50),
     description  VARCHAR(256),
@@ -74,15 +84,6 @@ CREATE TABLE inBand
     FOREIGN KEY (bandID) REFERENCES Band (ID)
 );
 
-CREATE TABLE Publishes
-(
-    profileID BIGINT,
-    postID    BIGINT,
-    PRIMARY KEY (profileID, postID),
-    FOREIGN KEY (profileID) REFERENCES Profile (ID),
-    FOREIGN KEY (postID) REFERENCES Post (ID)
-);
-
 CREATE TABLE PlaysInstrument
 (
     profileID    BIGINT,
@@ -95,8 +96,8 @@ CREATE TABLE PlaysInstrument
 
 CREATE TABLE Likes
 (
-    profileID   BIGINT,
-    postID BIGINT,
+    profileID BIGINT,
+    postID    BIGINT,
     PRIMARY KEY (profileID, postID),
     FOREIGN KEY (profileID) REFERENCES Profile (ID),
     FOREIGN KEY (postID) REFERENCES Post (ID)
