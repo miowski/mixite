@@ -16,7 +16,7 @@ class Befriend implements JsonSerializable
         return $this->since;
     }
 
-    public function setSince($since)
+    public function setSince($since): Befriend
     {
         $this->since = $since;
         return $this;

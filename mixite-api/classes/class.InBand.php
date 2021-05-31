@@ -14,7 +14,7 @@ class InBand implements JsonSerializable {
         return $this->since;
     }
 
-    public function setSince($since)
+    public function setSince($since): InBand
     {
         $this->since = $since;
         return $this;

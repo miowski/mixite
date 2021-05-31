@@ -26,7 +26,7 @@ class Instrument implements JsonSerializable {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName($name): Instrument
     {
         $this->name = $name;
         return $this;
@@ -37,7 +37,7 @@ class Instrument implements JsonSerializable {
         return $this->category;
     }
 
-    public function setCategory($category)
+    public function setCategory($category): Instrument
     {
         $this->category = $category;
         return $this;

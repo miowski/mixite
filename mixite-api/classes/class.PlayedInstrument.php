@@ -35,7 +35,7 @@ class PlayedInstrument implements JsonSerializable {
         return $this->since;
     }
 
-    public function setSince($since)
+    public function setSince($since): PlayedInstrument
     {
         $this->since = $since;
         return $this;

@@ -29,7 +29,7 @@ class Identity implements JsonSerializable
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName($name): Identity
     {
         $this->name = $name;
         return $this;
@@ -63,7 +63,7 @@ class Identity implements JsonSerializable
         return $this->description;
     }
 
-    public function setDescription($description)
+    public function setDescription($description): Identity
     {
         $this->description = $description;
         return $this;
@@ -74,7 +74,7 @@ class Identity implements JsonSerializable
         return $this->joinDate;
     }
 
-    public function setJoinDate($joinDate)
+    public function setJoinDate($joinDate): Identity
     {
         $this->joinDate = $joinDate;
         return $this;
@@ -85,7 +85,7 @@ class Identity implements JsonSerializable
         return $this->insta;
     }
 
-    public function setInsta($insta)
+    public function setInsta($insta): Identity
     {
         $this->insta = $insta;
         return $this;
@@ -96,7 +96,7 @@ class Identity implements JsonSerializable
         return $this->tiktok;
     }
 
-    public function setTiktok($tiktok)
+    public function setTiktok($tiktok): Identity
     {
         $this->tiktok = $tiktok;
         return $this;
@@ -107,7 +107,7 @@ class Identity implements JsonSerializable
         return $this->youtube;
     }
 
-    public function setYoutube($youtube)
+    public function setYoutube($youtube): Identity
     {
         $this->youtube = $youtube;
         return $this;
@@ -118,7 +118,7 @@ class Identity implements JsonSerializable
         return $this->spotify;
     }
 
-    public function setSpotify($spotify)
+    public function setSpotify($spotify): Identity
     {
         $this->spotify = $spotify;
         return $this;

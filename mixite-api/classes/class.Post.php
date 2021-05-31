@@ -24,45 +24,12 @@ class Post implements JsonSerializable
         return $this;
     }
 
-    public function getIdPublisher(): int
-    {
-        return $this->idPublisher;
-    }
-
-    public function setIdPublisher(int $idPublisher): Post
-    {
-        $this->idPublisher = $idPublisher;
-        return $this;
-    }
-
-    public function getPublisher(): int
-    {
-        return $this->publisher;
-    }
-
-    public function setPublisher($publisher): Post
-    {
-        $this->publisher = $publisher;
-        return $this;
-    }
-
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    public function setDate($date)
-    {
-        $this->date = $date;
-        return $this;
-    }
-
     public function getTitle()
     {
         return $this->title;
     }
 
-    public function setTitle($title)
+    public function setTitle($title): Post
     {
         $this->title = $title;
         return $this;
@@ -73,7 +40,7 @@ class Post implements JsonSerializable
         return $this->description;
     }
 
-    public function setDescription($description)
+    public function setDescription($description): Post
     {
         $this->description = $description;
         return $this;
@@ -84,7 +51,7 @@ class Post implements JsonSerializable
         return $this->media;
     }
 
-    public function setMedia($media)
+    public function setMedia($media): Post
     {
         $this->media = $media;
         return $this;
@@ -112,11 +79,9 @@ class Post implements JsonSerializable
         return $this;
     }
 
-    public function __construct(int $id, int $idPublisher, $date, $title, $description, $media)
+    public function __construct(int $id, $title, $description, $media)
     {
         $this->id = $id;
-        $this->idPublisher = $idPublisher;
-        $this->date = $date;
         $this->title = $title;
         $this->description = $description;
         $this->media = $media;
