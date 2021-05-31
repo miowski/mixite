@@ -1,7 +1,5 @@
 <?php
 
-/* Generated from GenMyModel */
-
 class Post implements JsonSerializable
 {
 
