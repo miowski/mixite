@@ -10,27 +10,74 @@
     <script src="https://unpkg.com/vue-router"></script>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/55cc70d4c7.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<div id="app">
 <nav>
-    <img src="images/nav-logo.png" alt="Logo de la navigation">
+    <h1 id="nav-text-logo"><router-link to="/" class="nav-link">X</router-link></h1>
     <form class="search-bar">
         <label for="search-bar"></label>
         <input id="search-bar" type="text" placeholder="Recherchez : guitariste, chanteur, claviste...">
         <i class="fas fa-search" id="search-icon"></i>
     </form>
-</nav>
-    <main id="app">
-        <router-view></router-view>
-    </main>
-<footer>
-</footer>
+    <div class="nav-toggle" onclick="document.documentElement.classList.toggle('menu-open')">
+        <div class="nav-toggle-bar"></div>
+    </div>
+    <div class="menu">
+        <div class="menu-content">
 
+            <ul>
+                <li><h3>Mon profil</h3></li>
+                <li>
+                    <router-link to="/Profile" class="nav-link">Mon profil</router-link>
+                </li>
+                <li><router-link to="/Band" class="nav-link">Mes groupes</router-link></li>
+                <li><h3>À propos</h3></li>
+                <li><router-link to="/Contact" class="nav-link">Contact</router-link></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <router-view></router-view>
+
+<footer>
+    <div>
+        <h3>Mon profil</h3>
+
+        <ul>
+            <li><router-link to="/Profile" class="footer-link">Ma page</router-link></li>
+            <li><a>Réglages</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3>Mes groupes</h3>
+        <ul>
+            <li><router-link to="/Band" class="footer-link">Page groupe</router-link></li>
+        </ul>
+    </div>
+    <div>
+        <h3>À propos</h3>
+        <ul>
+            <li><router-link to="/Contact" class="footer-link">Contact</router-link></li>
+            <li><a>Mentions légales</a></li>
+        </ul>
+    </div>
+</footer>
+</div>
 <script src="pages/home.vue.js"></script>
+<script src="pages/profile.vue.js"></script>
+<script src="pages/band.vue.js"></script>
+<script src="pages/contact.vue.js"></script>
 
 <script>
     let routes = [
-        {path: '/', name: 'Accueil', component: Accueil}
+        {path: '/', name: 'Accueil', component: Accueil},
+        {path: '/Band', name: 'Band', component: Band},
+        {path: '/Profile', name: 'Profile', component: Profile},
+        {path: '/Contact', name: 'Contact', component: Contact}
     ]
 
     let router = new VueRouter(

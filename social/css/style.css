@@ -17,9 +17,14 @@ h3 {
     text-transform: uppercase;
 }
 
-p, ul > li, .search-filter {
+p, ul > li, sub, .search-filter {
     font-family: "Work Sans", sans-serif;
     font-weight: 300;
+}
+
+sub {
+    font-size: smaller;
+    font-style: oblique;
 }
 
 
@@ -37,6 +42,22 @@ button {
     font-weight: 400;
 }
 
+/* Layout */
+
+body {
+    margin: 0;
+}
+
+/* Styles graphiques */
+
+#nav-text-logo {
+    position: relative;
+    font-size: 6vh;
+    margin: 1vh;
+    top: -1vh;
+    color: white;
+}
+
 #search-bar {
     padding: 0.85rem;
     border: solid 2px #AAA2F5;
@@ -44,7 +65,12 @@ button {
 }
 
 .feed {
-    width: 80%;
+    max-width: 942px;
+    display: block;
+    margin: auto;
+}
+
+.post {
     background: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -52,7 +78,235 @@ button {
     margin: 10px;
 }
 
-.feed h1, p {
-    margin-top: 0;
+.post > h3, .post > p {
+    margin: 0;
     padding: 0;
+}
+
+.post > p {
+    padding-top: 0.5rem;
+}
+
+nav {
+    top: -1vh;
+    background: black;
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+}
+
+#search-bar {
+    display: block;
+    height: 1rem;
+    margin: 1vh 2rem 1vh auto;
+    width: 50vw;
+}
+
+.menu {
+    right: 0;
+    position: absolute;
+}
+
+.menu-content {
+    color: white;
+}
+
+.menu-content > ul {
+    margin: 1.25rem 0;
+}
+
+.menu-content > ul li, .menu-content {
+    list-style: none;
+    display: inline;
+}
+
+.menu-content > ul > li > h3 {
+    display: none;
+}
+
+@media only screen and (max-width: 942px) {
+
+    .feed {
+        width: 95vw;
+    }
+
+    .menu-content > ul li, .menu-content {
+        list-style: initial;
+    }
+
+    .menu-content > h3 {
+        display: block;
+    }
+
+    .menu {
+        z-index: 95;
+        position: fixed;
+        top: 4.5rem;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateX(100vw);
+        transition: all .4s;
+        background: black;
+    }
+
+    .menu-open .menu {
+        transform: translateX(0);
+    }
+
+    .menu-open, .menu-open body {
+        overflow: hidden;
+    }
+
+    .menu-content {
+        padding-right: 5%;
+        height: 100%
+    }
+
+    .menu-content > p {
+        position: fixed;
+        bottom: 1rem;
+    }
+
+    .nav-toggle {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        width: 2.55rem;
+        height: 2.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-toggle-bar,
+    .nav-toggle-bar::before,
+    .nav-toggle-bar::after {
+        content: "";
+        background-color: white;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        transition: all .4s ease;
+    }
+
+    .nav-toggle-bar::before {
+        top: -1rem;
+    }
+
+    .nav-toggle-bar::after {
+        top: 1rem;
+    }
+
+    .menu-open .nav-toggle-bar {
+        transform: rotate(135deg);
+    }
+
+    .menu-open .nav-toggle-bar::before,
+    .menu-open .nav-toggle-bar::after {
+        transform: rotate(90deg);
+        top: 0;
+    }
+
+    .menu-content > ul {
+        list-style: none;
+    }
+
+}
+
+footer {
+    width: 100vw;
+    height: 10rem;
+    background: black;
+    color: white;
+    display: flex;
+    padding-bottom: 3rem;
+}
+
+footer > div {
+    margin: 3rem 0 3rem 3rem;
+    height: 7rem;
+    padding-right: 3rem;
+    border-right: solid white 2px;
+}
+
+footer > div:nth-child(3) {
+    border: none;
+}
+
+footer > div > ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer > div > ul > li {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.nav-link, .footer-link {
+    text-decoration: none;
+    color: white;
+    transition: .4s;
+}
+
+.nav-link {
+    margin: 0 1rem;
+}
+
+.nav-link:hover, .footer-link:hover {
+    color: #2185D6;
+}
+
+.contact {
+    height: 80vh;
+}
+
+.contact > #intro-overlay > #intro-background {
+    background: url(../images/scene-instruments.jpg) center;
+    background-size: cover;
+}
+
+.contact > h1 {
+    font-size: 5rem;
+}
+
+.contact > h1, .contact > p {
+    text-align: center;
+    color: white;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-profile {
+    height: 10rem;
+    text-align: center;
+    color: white;
+    margin: 2rem;
+}
+
+.contact-profile > img {
+    height: 25vh;
+    width: auto;
+    border-radius: 100%;
+}
+
+#intro-background {
+    opacity: 50%;
+    z-index: -2;
+    width: 100vw;
+    height: 103vh;
+    background-size: cover;
+}
+
+#intro-overlay {
+    position: absolute;
+    top: 7vh;
+    height: 103vh;
+    background: black;
+    z-index: -1;
 }
