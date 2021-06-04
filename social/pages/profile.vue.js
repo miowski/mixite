@@ -10,7 +10,6 @@ let Profile = Vue.component('Profile', {
           <p class="entity-description">Hey ! Je suis guitariste et chanteur.</p>
           <ul class="entity-socials">
             <li><i class="fab fa-instagram"></i>marcxler</li>
-            <li>marcxler</li>
           </ul>
         </div>
       </div>

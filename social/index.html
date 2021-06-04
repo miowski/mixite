@@ -20,7 +20,6 @@
     <form class="search-bar">
         <label for="search-bar"></label>
         <input id="search-bar" type="text" placeholder="Recherchez : guitariste, chanteur, claviste...">
-        <i class="fas fa-search" id="search-icon"></i>
     </form>
     <div class="nav-toggle" onclick="document.documentElement.classList.toggle('menu-open')">
         <div class="nav-toggle-bar"></div>
@@ -30,12 +29,11 @@
 
             <ul>
                 <li><h3>Mon profil</h3></li>
-                <li>
-                    <router-link to="/Profile" class="nav-link">Mon profil</router-link>
-                </li>
+                <li><router-link to="/Profile" class="nav-link">Mon profil</router-link></li>
                 <li><router-link to="/Band" class="nav-link">Mes groupes</router-link></li>
                 <li><h3>À propos</h3></li>
                 <li><router-link to="/Contact" class="nav-link">Contact</router-link></li>
+                <li><router-link to="/Login" class="nav-link" tag="button" style="color: black">Se connecter</router-link></li>
             </ul>
         </div>
     </div>
@@ -71,13 +69,15 @@
 <script src="pages/profile.vue.js"></script>
 <script src="pages/band.vue.js"></script>
 <script src="pages/contact.vue.js"></script>
+<script src="pages/login.vue.js"></script>
 
 <script>
     let routes = [
         {path: '/', name: 'Accueil', component: Accueil},
         {path: '/Band', name: 'Band', component: Band},
         {path: '/Profile', name: 'Profile', component: Profile},
-        {path: '/Contact', name: 'Contact', component: Contact}
+        {path: '/Contact', name: 'Contact', component: Contact},
+        {path: '/Login', name: 'Login', component: Login}
     ]
 
     let router = new VueRouter(
